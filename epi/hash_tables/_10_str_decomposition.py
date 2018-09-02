@@ -16,7 +16,7 @@ def find_all_substrings(s, words):
                 return False
         return True
 
-    # Map to keep word precense and count
+    # Map to keep word presence and count
     words_cnt = collections.Counter(words)
     # Since all words are of same length
     word_len = len(words[0])
