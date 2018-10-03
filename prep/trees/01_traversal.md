@@ -1,4 +1,4 @@
-## Binary Trees
+## Traversal
 
 ### Inorder Tree Traversal
 
@@ -153,3 +153,37 @@ Given a binary tree, return the inorder traversal of its nodes' values.
                 if not stack:
                     return result
         ```
+
+### Level Order Traversal (BFS)
+  * Print all levels separately
+    ```python
+    class Solution(object):
+        def levelOrder(self, root):
+            """
+            :type root: TreeNode
+            :rtype: List[List[int]]
+            """
+            if not root:
+                return []
+            stack, result = [root],[]
+            while stack:
+                temp = []
+                level_data = []
+                for node in stack:
+                    level_data.append(node.val)
+                    if node.left:
+                        temp.append(node.left)                
+                    if node.right:
+                        temp.append(node.right)
+                stack = temp
+                result.append(level_data)
+            return result
+    ```
+    ```bash
+    # Output
+    [
+        [3],
+        [9,20],
+        [15,7]
+    ]
+    ```
